@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:roasted_beans/offerspage.dart';
 
 void main() {
   runApp(const MyApp()); // here created an object of myApp class
@@ -66,19 +67,25 @@ class MyApp extends StatelessWidget {
   // @override-is an annotation, it is used to override the method of the parent class
   @override
   Widget build(BuildContext context) {
+    //title ofthe material app is used in OS
     return MaterialApp(
-      title: 'Roasted Beans Coffee',
+      title: 'Roasted Beans',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        //here we can declare global themes, colors declarations that can be used anywhere in widget tree
+        primarySwatch: Colors.brown,
       ),
-      home: const MyHomePage(title: 'Roasted Beans Coffee'),
+
+      ///title here in MyHomePage is used in visible screen
+      home: const MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-  final String title;
+  //this below is a constructor, which will take reference
+  const MyHomePage({
+    super.key,
+  });
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -89,9 +96,10 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        centerTitle: true,
+        title: Image.asset("images/logo.png"),
       ),
-      body: const Greet(),
+      body: const OffersPage(),
     );
   }
 }
