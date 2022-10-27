@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:roasted_beans/offerspage.dart';
+import 'package:roasted_beans/pages/menupage.dart';
+import 'package:roasted_beans/pages/offerspage.dart';
+import 'package:roasted_beans/pages/orderpage.dart';
 
 void main() {
   runApp(const MyApp()); // here created an object of myApp class
@@ -91,13 +93,13 @@ class _MyHomePageState extends State<MyHomePage> {
 
     switch (selectedIndex) {
       case 0:
-        currentWidgetPage = const Text("Menu Page");
+        currentWidgetPage = const MenuPage();
         break;
       case 1:
         currentWidgetPage = const OffersPage();
         break;
       case 2:
-        currentWidgetPage = const Text("Orders Page");
+        currentWidgetPage = const OrderPage();
         break;
       default:
     }
