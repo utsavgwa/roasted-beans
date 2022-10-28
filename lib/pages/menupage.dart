@@ -8,11 +8,19 @@ class MenuPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var p = Product(id: 1, name: "Dummy", price: 2.3, image: "");
-    return ProductItem(product: p);
+    return ListView(
+      children: [
+        ProductItem(product: p),
+        ProductItem(product: p),
+        ProductItem(product: p),
+        ProductItem(product: p),
+        ProductItem(product: p),
+      ],
+    );
   }
 }
 
-//this renders one product on the screen
+//this widget a renders one product on the screen,
 class ProductItem extends StatelessWidget {
   final Product product;
 
@@ -23,24 +31,45 @@ class ProductItem extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(6),
       child: Card(
-          elevation: 4,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Image.asset("images/black_coffee.png"),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  product.name,
-                  style: const TextStyle(fontWeight: FontWeight.bold),
+        elevation: 4,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Image.asset("images/black_coffee.png"),
+            //overall positioning
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                //for name and price
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        product.name,
+                        style: const TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text("\$ ${product.price}"),
+                    ),
+                  ],
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text("\$${product.price}"),
-              ),
-            ],
-          )),
+                Padding(
+                  padding: const EdgeInsets.only(right: 8.0),
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    child: const Text("Add"),
+                  ),
+                )
+              ],
+            )
+          ],
+        ),
+      ),
     );
   }
 }
