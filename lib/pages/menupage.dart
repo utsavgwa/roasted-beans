@@ -10,11 +10,18 @@ class MenuPage extends StatelessWidget {
     var p = Product(id: 1, name: "Dummy", price: 2.3, image: "");
     return ListView(
       children: [
-        ProductItem(product: p),
-        ProductItem(product: p),
-        ProductItem(product: p),
-        ProductItem(product: p),
-        ProductItem(product: p),
+        ProductItem(
+          product: p,
+          onAdd: () {},
+        ),
+        ProductItem(
+          product: p,
+          onAdd: () {},
+        ),
+        ProductItem(
+          product: p,
+          onAdd: () {},
+        ),
       ],
     );
   }
@@ -23,8 +30,11 @@ class MenuPage extends StatelessWidget {
 //this widget a renders one product on the screen,
 class ProductItem extends StatelessWidget {
   final Product product;
+  final Function onAdd;
 
-  const ProductItem({Key? key, required this.product}) : super(key: key);
+  // recieveing in constructor
+  const ProductItem({Key? key, required this.product, required this.onAdd})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +47,6 @@ class ProductItem extends StatelessWidget {
           children: [
             Image.asset("images/black_coffee.png"),
             //overall positioning
-
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -61,7 +70,9 @@ class ProductItem extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(right: 8.0),
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      onAdd(product);
+                    },
                     child: const Text("Add"),
                   ),
                 )
