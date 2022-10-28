@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:roasted_beans/datamanager.dart';
-import 'package:roasted_beans/pages/menupage.dart';
-import 'package:roasted_beans/pages/offerspage.dart';
-import 'package:roasted_beans/pages/orderpage.dart';
+import 'package:roasted_beans/pages/menu_page.dart';
+import 'package:roasted_beans/pages/offers_page.dart';
+import 'package:roasted_beans/pages/order_page.dart';
 
 void main() {
   runApp(const MyApp()); // here created an object of myApp class
